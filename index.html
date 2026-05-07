@@ -100,9 +100,8 @@
       padding: 120px 40px 80px;
       position: relative;
       background:
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,105,20,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
-        var(--bg);
+        linear-gradient(rgba(12,8,5,0.72), rgba(12,8,5,0.88)),
+        url('/images/photo1.webp') center/cover no-repeat;
     }
 
     .hero-ornament {
@@ -252,6 +251,38 @@
       padding: 80px 80px;
     }
 
+    .story-layout {
+      display: flex;
+      gap: 56px;
+      align-items: stretch;
+    }
+
+    .story-text { flex: 0 0 60%; }
+
+    .story-photo {
+      flex: 0 0 40%;
+      position: relative;
+      margin-right: -40px;
+    }
+
+    .story-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+    }
+
+    /* ── PHOTO BREAK ── */
+    .photo-break {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
     .story h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(36px, 5vw, 56px);
@@ -316,9 +347,19 @@
     .feature:hover::before { transform: scaleX(1); }
 
     .feature-icon {
-      font-size: 32px;
       margin-bottom: 20px;
       display: block;
+      color: var(--gold);
+    }
+
+    .feature-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .feature h3 {
@@ -339,7 +380,9 @@
     /* ── CROATIAN SECTION ── */
     .dalmatia {
       padding: 120px 40px;
-      background: var(--bg2);
+      background:
+        linear-gradient(rgba(12,8,5,0.78), rgba(12,8,5,0.78)),
+        url('/images/photo5.webp') center/cover no-repeat;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -510,6 +553,9 @@
       nav { padding: 20px 24px; }
       .nav-links { display: none; }
       .story-inner { padding: 48px 32px; }
+      .story-layout { flex-direction: column; gap: 28px; }
+      .story-photo { margin-right: 0; }
+      .story-photo img { min-height: 320px; }
       .section { padding: 80px 24px; }
       .dalmatia { padding: 80px 24px; }
       .download { padding: 100px 24px; }
@@ -566,6 +612,8 @@
     </p>
     <div class="story reveal">
       <div class="story-inner">
+        <div class="story-layout">
+          <div class="story-text">
         <h2 data-lang="hr">Počelo je kao <em>bilježnica.</em><br>Završilo je kao nešto puno više.</h2>
         <h2 data-lang="en">It started as a <em>notebook.</em><br>It became something far greater.</h2>
 
@@ -580,9 +628,16 @@
 
         <p data-lang="hr">Cilj je ostao isti: pomoći malim proizvođačima da prave bolje vino. Samo je put do tog cilja postao — ljepši.</p>
         <p data-lang="en">The goal remained the same: help small producers make better wine. The road to that goal just became — more beautiful.</p>
+          </div>
+          <div class="story-photo" aria-hidden="true">
+            <img src="/images/photo2.webp" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <img src="/images/photo3.webp" alt="" class="photo-break" aria-hidden="true">
 
   <!-- FEATURES -->
   <div id="features" class="section" style="padding-top:0">
@@ -592,37 +647,37 @@
     </p>
     <div class="features-grid reveal">
       <div class="feature">
-        <span class="feature-icon">📋</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 6h10"/><path d="M9 10h10"/><path d="M9 14h10"/><path d="M5 7.5V20a2 2 0 0 0 2 2h12"/><path d="M7 4h10a2 2 0 0 1 2 2v14"/><path d="M5 4h2a2 2 0 0 1 2 2v1.5H5V4z"/></svg></span>
         <h3><span data-lang="hr">Vinarski dnevnik</span><span data-lang="en">Wine logbook</span></h3>
         <p data-lang="hr">Fermentacija, sumpor, bilješke — sve zabilježeno po vinu, s datumom i detaljima. Graf gustoće raste kako fermentacija napreduje.</p>
         <p data-lang="en">Fermentation, sulfur, notes — all logged per wine, with date and details. Density chart grows as fermentation progresses.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">🤖</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M8 21h8"/><path d="M7 10h10"/><path d="M9 14h.01"/><path d="M15 14h.01"/><path d="M8 10V8a4 4 0 0 1 8 0v2"/><path d="M6 10v6a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-6"/></svg></span>
         <h3><span data-lang="hr">AI asistent</span><span data-lang="en">AI assistant</span></h3>
         <p data-lang="hr">Osobni enolog koji čita tvoje podatke i daje savjete bazirane na tvojim vinima — ne generičke odgovore iz interneta.</p>
         <p data-lang="en">A personal oenologist who reads your data and gives advice based on your wines — not generic answers from the internet.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">📸</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 7h4l2-2h4l2 2h4v12H4z"/><path d="M12 10a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7z"/></svg></span>
         <h3><span data-lang="hr">Analiza fotografija</span><span data-lang="en">Photo analysis</span></h3>
         <p data-lang="hr">Fotografiraj etiketu preparata, bolest na listu ili grožđe — asistent prepoznaje, tumači i daje preporuku.</p>
         <p data-lang="en">Photograph a product label, a leaf disease, or a cluster — the assistant recognises, interprets, and advises.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">🧪</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M10 2v6l-4.5 8a4.5 4.5 0 0 0 4 6h5a4.5 4.5 0 0 0 4-6L14 8V2"/><path d="M8.5 14h7"/></svg></span>
         <h3><span data-lang="hr">Kalkulatori</span><span data-lang="en">Calculators</span></h3>
         <p data-lang="hr">SO₂, alkohol, kiseline, šećer — precizni izračuni s korekcijom temperature i pH tablicama.</p>
         <p data-lang="en">SO₂, alcohol, acids, sugar — precise calculations with temperature correction and pH tables.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">🔔</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0 -12 0c0 7-3 7-3 7h18s-3 0-3-7"/><path d="M10 19a2 2 0 0 0 4 0"/></svg></span>
         <h3><span data-lang="hr">Podsjetnici</span><span data-lang="en">Reminders</span></h3>
         <p data-lang="hr">Nakon svakog dodavanja sumpora, aplikacija te pita kada da te podsjeti na sljedeću provjeru — 7, 14, 21 ili 28 dana.</p>
         <p data-lang="en">After every sulfur addition, the app asks when to remind you for the next check — 7, 14, 21 or 28 days.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">📄</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M8.5 12h7"/><path d="M8.5 16h7"/></svg></span>
         <h3><span data-lang="hr">PDF izvoz</span><span data-lang="en">PDF export</span></h3>
         <p data-lang="hr">Jedan tap — kompletan vinarski dnevnik kao PDF. Pošalji laboratoriju, agronomu ili zadrži za vlastite evidencije.</p>
         <p data-lang="en">One tap — complete wine logbook as PDF. Send to a lab, agronomist, or keep for your own records.</p>
@@ -685,7 +740,7 @@
       <h2 data-lang="en">Get in touch</h2>
       <p data-lang="hr">Pitanja, prijedlozi, povratne informacije — uvijek dobrodošli.</p>
       <p data-lang="en">Questions, suggestions, feedback — always welcome.</p>
-      <a href="mailto:your@email.com">your@email.com</a>
+      <a href="mailto:dominikkrsini@gmail.com">dominikkrsini@gmail.com</a>
     </div>
   </section>
 
